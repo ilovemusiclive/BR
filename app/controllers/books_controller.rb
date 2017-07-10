@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
 
-
   before_action :find_book, only:[:show, :edit, :update, :destroy]
 
   def new
@@ -39,6 +38,10 @@ class BooksController < ApplicationController
     end
   end
 
+  def edit
+    @categories = Category.all.map { |c| [c.name, c.id] }
+  end
+
   def destroy
     @book.destroy
       redirect_to root_path
@@ -48,7 +51,7 @@ class BooksController < ApplicationController
 private
 
 def book_params
-  params.require(:book).permit(:title, :author, :description, :category_id)
+  params.require(:book).permit(:title, :author, :description, :category_id, :book_img)
 end
 
 
