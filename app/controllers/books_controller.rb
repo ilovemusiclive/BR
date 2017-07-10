@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 
+  before_action :authenticate_admin!, only: [:new, :edit]
   before_action :find_book, only:[:show, :edit, :update, :destroy]
 
   def new
@@ -27,8 +28,13 @@ class BooksController < ApplicationController
   end
 
   def show
-
+    if @book.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @book.reviews.average(:rating).round(2)
+    end
   end
+
 
   def update
     if @book.update(book_params)
