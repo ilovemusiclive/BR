@@ -1,0 +1,5 @@
+<%= simple_form_for([@book, @review]) do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :comment, as: :text %>
+  <%= f.button :submit %>
+<% end %>
