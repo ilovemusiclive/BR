@@ -1,5 +1,8 @@
 class Book < ApplicationRecord
 
+extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :admin
   belongs_to :category
   has_many :reviews
