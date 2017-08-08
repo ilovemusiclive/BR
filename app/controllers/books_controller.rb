@@ -36,6 +36,7 @@ class BooksController < ApplicationController
   end
 
 
+
   def update
     if @book.update(book_params)
       redirect_to book_path(@book)
@@ -54,16 +55,16 @@ class BooksController < ApplicationController
   end
 
 
-private
+  private
 
-def book_params
-  params.require(:book).permit(:title, :author, :description, :category_id, :book_img)
-end
+  def book_params
+    params.require(:book).permit(:title, :author, :description, :category_id, :book_img)
+  end
 
 
-def find_book
-  @book = Book.friendly.find(params[:id])
-end
+  def find_book
+    @book = Book.friendly.find(params[:id])
+  end
 
 
 end

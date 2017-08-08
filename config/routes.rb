@@ -6,4 +6,6 @@ resources :books do
 end
 
   root "books#index"
+
+get '/books/index' => redirect('/book')
 end

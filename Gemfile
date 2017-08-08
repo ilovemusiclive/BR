@@ -25,6 +25,7 @@ gem 'paperclip', '~> 5.1'
 gem 'devise', '~> 4.3'
 
 gem 'friendly_id', '~> 5.2', '>= 5.2.1'
+gem 'meta_tags', git: "git://github.com/vala/meta_tags.git"
 
 group :development, :test do
   gem 'byebug', platform: :mri
